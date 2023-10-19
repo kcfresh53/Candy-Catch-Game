@@ -24,6 +24,7 @@ public class CandySpawner : MonoBehaviour
         { 
             // instance candy and set spawn position
             Instantiate(candy).transform.position = spawnPos;
+            candyCount--;
         }
         // Call self once terminated
         StartCoroutine(SpawnCandy());
