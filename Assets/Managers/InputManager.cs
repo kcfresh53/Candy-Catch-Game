@@ -9,5 +9,10 @@ public class InputManager : MonoBehaviour
     public static void Init(Player myPlayer)
     {
         _controls = new Controlls();
+
+        _controls.Game.Movement.performed += ctx =>
+        {
+            myPlayer.SetMovementDirection(ctx.ReadValue<Vector3>());
+        };
     }
 }

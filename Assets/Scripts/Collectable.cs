@@ -8,7 +8,6 @@ public class Collectable : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-
             Destroy(gameObject);
         }
     }

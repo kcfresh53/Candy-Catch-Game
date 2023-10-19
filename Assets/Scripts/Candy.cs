@@ -16,7 +16,7 @@ public class Candy : MonoBehaviour
     {
         // get each child sprite
         Transform[] candySprites = GetComponentsInChildren<Transform>();
-        foreach (Transform x in candySprites) 
+        foreach (Transform x in candySprites)
         {
             //hide sprite
             x.gameObject.SetActive(false);
@@ -28,6 +28,14 @@ public class Candy : MonoBehaviour
     {
         int selectedCandy = Random.Range(0, 5);
         transform.GetChild(selectedCandy).gameObject.SetActive(true);
-        Debug.Log(selectedCandy.ToString());
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Player")
+        {
+            Player playerObj = other.gameObject.GetComponent<Player>();
+            playerObj.publicscore += 1;
+        }
     }
 }
